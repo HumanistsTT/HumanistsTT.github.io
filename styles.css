@@ -160,6 +160,26 @@ footer{
   font-size:0.85rem;
 }
 
+.exec-list {
+  list-style: none; /* remove bullets */
+  padding: 0;
+}
+
+.exec-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 10px; /* space between image and text */
+}
+
+.exec-photo {
+  width: 50px;    /* adjust size */
+  height: 50px;   /* adjust size */
+  object-fit: cover; /* crop nicely */
+  border-radius: 50%; /* make circular */
+}
+
+
 /* Responsive adjustments */
 
 /* Tablets and below (≤768px) */
@@ -197,6 +217,18 @@ footer{
   section {
     margin:1.5rem 0;
   }
+
+  .exec-list li {
+    flex-direction: column; /* stack vertically */
+    align-items: center;    /* center image and text */
+    text-align: center;     /* center text */
+  }
+
+  .exec-photo {
+    width: 80px;  /* slightly larger on mobile if desired */
+    height: 80px;
+    margin-bottom: 5px; /* space between image and text */
+  }
 }
 
 /* Phones (≤480px) */
@@ -223,5 +255,17 @@ footer{
 
   section h2 {
     font-size:1.1rem;
+  }
+
+  .exec-list li {
+    flex-direction: column; /* stack vertically */
+    align-items: center;    /* center image and text */
+    text-align: center;     /* center text */
+  }
+
+  .exec-photo {
+    width: 80px;  /* slightly larger on mobile if desired */
+    height: 80px;
+    margin-bottom: 5px; /* space between image and text */
   }
 }
