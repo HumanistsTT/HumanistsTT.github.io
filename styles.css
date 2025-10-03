@@ -182,10 +182,19 @@ footer{
 }
 
 .exec-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills container, crops excess */
+}
+
+.photo-wrapper {
   width: 120px;
   height: 120px;
-  object-fit: cover; /* ensures all images fill the square without distortion */
+  overflow: hidden;
   border-radius: 50%; /* circular images */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -254,7 +263,7 @@ footer{
     font-size:1.1rem;
   }
 
-  .exec-photo {
+  .photo-wrapper {
     width: 100px;
     height: 100px;
   }
