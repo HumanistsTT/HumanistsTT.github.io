@@ -82,7 +82,7 @@ header{
 }
 
 /* Hero section */
-.hero{
+/* .hero{
   padding:3rem 1rem;
   text-align:center;
 }
@@ -91,6 +91,44 @@ header{
   color:var(--accent);
   font-size:2.2rem;
   margin-bottom:1rem;
+} */
+
+/* Hero section */
+.hero {
+  position: relative;       /* allows the ::before overlay */
+  padding: 3rem 1rem;       /* keep your spacing */
+  text-align: center;       /* keep your alignment */
+  overflow: hidden;         /* ensures logo stays inside */
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;   /* adjust size */
+  height: 500px;
+  background: url("humaniststt-logo-transparent.png") no-repeat center center;
+  background-size: contain;
+  opacity: 0.08;  /* makes it subtle */
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+/* Keep your existing text styles, but layer above logo */
+.hero h1 {
+  color: var(--accent);
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero p,
+.hero blockquote,
+.hero a {
+  position: relative;
+  z-index: 1;
 }
 
 .cta{
