@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating Safe Schools | HTT Discussion Forum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Lato:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="/style.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Lato', 'Helvetica Neue', sans-serif;
+            background: white;
+            color: #2B2B2B;
+            line-height: 1.6;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(43,43,43,0.90) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23E31E24" opacity="0.1" width="1200" height="600"/><circle fill="%23E31E24" opacity="0.05" cx="200" cy="300" r="300"/><circle fill="%23E31E24" opacity="0.05" cx="1000" cy="300" r="400"/></svg>');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .breadcrumb a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb a:hover {
+            color: #E31E24;
+        }
+        
+        .breadcrumb .separator {
+            color: rgba(255,255,255,0.4);
+        }
+        
+        .breadcrumb .current {
+            color: white;
+            font-weight: 600;
+        }
+        
+        .event-badge {
+            display: inline-block;
+            background: #E31E24;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+        
+        .hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 64px;
+            font-weight: 700;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            max-width: 900px;
+        }
+        
+        .hero-title .accent {
+            color: #E31E24;
+        }
+        
+        .hero-subtitle {
+            font-size: 24px;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 40px;
+            max-width: 700px;
+        }
+        
+        .hero-meta {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: white;
+            font-size: 16px;
+        }
+        
+        .meta-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(227,30,36,0.2);
+            border: 2px solid #E31E24;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        
+        .meta-text strong {
+            display: block;
+            font-weight: 700;
+        }
+        
+        .meta-text span {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: #E31E24;
+            color: white;
+            padding: 18px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+            box-shadow: 0 6px 25px rgba(227,30,36,0.4);
+        }
+        
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(227,30,36,0.6);
+        }
+        
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+        
+        .section-subtitle {
+            font-size: 20px;
+            color: #767676;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+        
+        .column-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 600;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+        
+        .column-content p {
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #E31E24 0%, #C91B20 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 60px 0;
+        }
+        
+        .highlight-box h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+        
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .highlight-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .highlight-number {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            opacity: 0.5;
+        }
+        
+        .highlight-item h4 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .highlight-item p {
+            font-size: 15px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        .speaker-bio {
+            background: #F8F8F8;
+            padding: 60px;
+            border-radius: 12px;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+        
+        .speaker-image {
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(135deg, #000000 0%, #2B2B2B 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 72px;
+            font-weight: 700;
+        }
+        
+        .speaker-details h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 10px;
+        }
+        
+        .speaker-title-text {
+            font-size: 18px;
+            color: #E31E24;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+        
+        .speaker-details p {
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .experience-list {
+            list-style: none;
+            margin-top: 25px;
+        }
+        
+        .experience-list li {
+            padding: 15px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 16px;
+            line-height: 1.6;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .experience-list li:before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #E31E24;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        
+        .faq-section {
+            margin-top: 80px;
+        }
+        
+        .faq-item {
+            background: white;
+            border: 2px solid #F8F8F8;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .faq-item:hover {
+            border-color: #E31E24;
+        }
+        
+        .faq-question {
+            padding: 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 18px;
+            color: #000000;
+        }
+        
+        .faq-toggle {
+            width: 30px;
+            height: 30px;
+            background: #E31E24;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        
+        .faq-answer-content {
+            padding: 0 25px 25px 25px;
+            color: #767676;
+            line-height: 1.8;
+        }
+        
+        .registration-section {
+            background: #000000;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .registration-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .registration-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+        
+        .registration-section p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .email-form {
+            display: flex;
+            gap: 15px;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+        
+        .email-input {
+            flex: 1;
+            padding: 18px 25px;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 30px;
+            background: rgba(255,255,255,0.05);
+            color: white;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s;
+        }
+        
+        .email-input:focus {
+            border-color: #E31E24;
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .submit-button {
+            padding: 18px 40px;
+            background: #E31E24;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(227,30,36,0.5);
+        }
+        
+        .email-direct {
+            font-size: 16px;
+            opacity: 0.7;
+        }
+        
+        .email-direct a {
+            color: #E31E24;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 48px;
+            }
+            
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .highlight-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .speaker-bio {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .speaker-image {
+                margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 20px;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-subtitle {
+                font-size: 18px;
+            }
+            
+            .content-section {
+                padding: 60px 20px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .email-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-section">
+        <div class="hero-content">
+            <div class="breadcrumb">
+                <a href="/">Home</a>
+                <span class="separator">›</span>
+                <a href="/events">Events</a>
+                <span class="separator">›</span>
+                <span class="current">Creating Safe Schools</span>
+            </div>
+            
+            <div class="event-badge">Discussion Forum</div>
+            
+            <h1 class="hero-title">
+                Creating <span class="accent">Safe Schools</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+                Proven approaches to building community, connection, and youth empowerment in the age of digital disconnection
+            </p>
+            
+            <div class="hero-meta">
+                <div class="meta-item">
+                    <div class="meta-icon">📅</div>
+                    <div class="meta-text">
+                        <strong>Thursday, November 20</strong>
+                        <span>6:00 PM Trinidad Time</span>
+                    </div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-icon">👤</div>
+                    <div class="meta-text">
+                        <strong>Dr. Bernie Glos</strong>
+                        <span>Professor of Psychology</span>
+                    </div>
+                </div>
+                <div class="meta-item">
+                    <div class="meta-icon">🔒</div>
+                    <div class="meta-text">
+                        <strong>Invitation Only</strong>
+                        <span>Open to colleagues & friends</span>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#register" class="hero-cta">
+                <span>Reserve Your Spot</span>
+                <span>→</span>
+            </a>
+        </div>
+    </div>
+    
+    <div class="content-section">
+        <div class="section-header">
+            <h2 class="section-title">A Timely Conversation</h2>
+            <p class="section-subtitle">
+                In an era of increasing social disconnection, we have proven tools to create safer, more connected school environments
+            </p>
+        </div>
+        
+        <div class="two-column">
+            <div class="column-content">
+                <h3>The Challenge</h3>
+                <p>
+                    Social media has left young people increasingly disconnected and lacking in fundamental social skills. Schools face not just physical safety concerns, but the deeper challenge of emotional safety and authentic community building.
+                </p>
+                <p>
+                    Traditional approaches often miss the mark, focusing on surveillance and control rather than connection and empowerment. Yet research and field experience show us there's a better way.
+                </p>
+            </div>
+            
+            <div class="column-content">
+                <h3>The Solution</h3>
+                <p>
+                    Dr. Glos brings proven methodologies from work with gang-involved youth in Chicago's inner city and program development in Illinois juvenile detention centers. His approach demonstrates that targeted interventions can create dramatic shifts in school culture.
+                </p>
+                <p>
+                    This isn't theory—it's field-tested practice showing that just a few key interventions can make all the difference in creating schools where young people thrive.
+                </p>
+            </div>
+        </div>
+        
+        <div class="highlight-box">
+            <h3>The Three Pillars of Safe Schools</h3>
+            <div class="highlight-grid">
+                <div class="highlight-item">
+                    <div class="highlight-number">01</div>
+                    <h4>Building Community</h4>
+                    <p>Creating environments where every student experiences genuine belonging and sees themselves reflected in the school culture.</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-number">02</div>
+                    <h4>Making Connections</h4>
+                    <p>Restoring face-to-face social skills and authentic relationships in an age dominated by digital interaction.</p>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-number">03</div>
+                    <h4>Empowering Youth</h4>
+                    <p>Giving young people real agency, voice, and meaningful roles in shaping their school environment.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="speaker-bio">
+            <div class="speaker-image">
+                BG
+            </div>
+            <div class="speaker-details">
+                <h3>Dr. Bernie Glos</h3>
+                <div class="speaker-title-text">Professor of Psychology</div>
+                <p>
+                    Dr. Glos is a Professor of Psychology with decades of experience working directly with at-risk youth in America's most challenging environments. His approach combines rigorous psychological research with hands-on community intervention.
+                </p>
+                <p>
+                    His work stands apart for its focus on practical, implementable solutions that recognize young people's fundamental need for connection, purpose, and authentic community in an increasingly fragmented world.
+                </p>
+                
+                <ul class="experience-list">
+                    <li>Direct intervention work with gang-involved youth in Chicago's inner city neighborhoods</li>
+                    <li>Program architect and developer for youth intervention in Illinois juvenile detention centers</li>
+                    <li>Expert in addressing social media's impact on youth disconnection and social skill development</li>
+                    <li>Specialization in community-based approaches to youth safety and wellbeing</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="faq-section">
+            <div class="section-header">
+                <h2 class="section-title">What to Expect</h2>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Who should attend this forum?</span>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        This discussion is valuable for educators, school administrators, parents, community leaders, youth workers, and anyone committed to creating safer, more connected environments for young people. The insights apply across contexts—from formal educational settings to community organizations.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What's the format of the discussion?</span>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Dr. Glos will present key findings and methodologies from his field work, followed by an interactive discussion. Participants are encouraged to ask questions, share experiences, and explore how these approaches might apply to Trinidad & Tobago's context.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I bring colleagues or share the invitation?</span>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Absolutely. We encourage you to invite colleagues, friends, and anyone in your network who would benefit from this conversation. Simply have them email with their name to receive the access link.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Will there be a recording available?</span>
+                    <div class="faq-toggle">+</div>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        Recording details will be shared with registered participants. We aim to make these discussions accessible while maintaining the intimate, interactive nature of the forum.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="registration-section" id="register">
+        <div class="registration-content">
+            <h2>Join the Conversation</h2>
+            <p>This is a timely discussion for anyone committed to youth wellbeing and safer school communities.</p>
+            
+            <div class="email-form">
+                <input type="text" class="email-input" placeholder="Your Name">
+                <button class="submit-button" onclick="window.location.href='mailto:john.gedeon@gmail.com?subject=RSVP: Creating Safe Schools Forum&body=Name:%0D%0A%0D%0AI would like to attend the Creating Safe Schools discussion forum on Nov 20.'">
+                    Register Now
+                </button>
+            </div>
+            
+            <p class="email-direct">
+                Or email directly: <a href="mailto:john.gedeon@gmail.com">john.gedeon@gmail.com</a>
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
